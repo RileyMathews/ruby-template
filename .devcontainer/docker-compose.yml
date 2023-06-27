@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  dev:
+    &dev
+    build:
+      context: ..
+      dockerfile: .devcontainer/dockerfile
+      target: dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - ..:/code
+      - bundle_cache:/usr/local/bundle
+
+volumes:
+  bundle_cache:
